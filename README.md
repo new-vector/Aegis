@@ -21,7 +21,6 @@
 ![Model](https://img.shields.io/badge/MODEL-BiGRU%20%2B%20BAYESIAN-222222?style=for-the-badge)
 ![Latency](https://img.shields.io/badge/LATENCY-0.10–0.80ms-333333?style=for-the-badge)
 ![Strategy](https://img.shields.io/badge/STRATEGY-T%2B0%20HFT-111111?style=for-the-badge)
-![Alpha](https://img.shields.io/badge/ALPHA-PENDING-444444?style=for-the-badge)
 
 > *High-frequency, dual-market capital rotation strategy using Variational Mode Decomposition and Bidirectional Gated Recurrent Units with Bayesian probability updating, rotating capital dynamically between A-shares and US equities via HKEx FX settlement.*
 
@@ -199,7 +198,7 @@ pie title Latency Budget Breakdown
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "primaryBorderColor": "#555555", "lineColor": "#777777", "background": "#000000", "mainBkg": "#1a1a1a", "titleColor": "#ffffff", "taskBkgColor": "#1a1a1a", "taskBorderColor": "#555555", "taskTextColor": "#dddddd", "activeTaskBkgColor": "#2a2a2a", "activeTaskBorderColor": "#aaaaaa", "doneTaskBkgColor": "#333333", "doneTaskBorderColor": "#888888", "critBkgColor": "#111111", "critBorderColor": "#ffffff", "sectionBkgColor": "#000000", "altSectionBkgColor": "#0d0d0d", "gridColor": "#333333"}} }%%
 gantt
-    title AEGIS Alpha Capture Timeline
+    title AEGIS Timeline
     dateFormat YYYY-MM
     axisFormat %b '%y
 
