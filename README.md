@@ -18,11 +18,11 @@
 
 **`SSE` · `NASDAQ` · `HKEx`**
 
-[![Status](https://img.shields.io/badge/STATUS-RESEARCH%20PHASE-orange?style=for-the-badge&logo=buffer&logoColor=white)](.)
-[![Model](https://img.shields.io/badge/MODEL-BiGRU%20%2B%20BAYESIAN-7c3aed?style=for-the-badge&logo=pytorch&logoColor=white)](.)
-[![Latency](https://img.shields.io/badge/LATENCY-0.10–0.80ms-red?style=for-the-badge&logo=speedtest&logoColor=white)](.)
-[![Strategy](https://img.shields.io/badge/STRATEGY-T%2B0%20HFT-16a34a?style=for-the-badge&logo=chart.js&logoColor=white)](.)
-[![Alpha](https://img.shields.io/badge/ALPHA-PENDING-94a3b8?style=for-the-badge&logo=target&logoColor=white)](.)
+![Status](https://img.shields.io/badge/STATUS-RESEARCH%20PHASE-555555?style=for-the-badge)
+![Model](https://img.shields.io/badge/MODEL-BiGRU%20%2B%20BAYESIAN-222222?style=for-the-badge)
+![Latency](https://img.shields.io/badge/LATENCY-0.10–0.80ms-333333?style=for-the-badge)
+![Strategy](https://img.shields.io/badge/STRATEGY-T%2B0%20HFT-111111?style=for-the-badge)
+![Alpha](https://img.shields.io/badge/ALPHA-PENDING-444444?style=for-the-badge)
 
 > *High-frequency, dual-market capital rotation strategy using Variational Mode Decomposition and Bidirectional Gated Recurrent Units with Bayesian probability updating, rotating capital dynamically between A-shares and US equities via HKEx FX settlement.*
 
@@ -40,29 +40,29 @@
 %%{init: {
   "theme": "base",
   "themeVariables": {
-    "primaryColor": "#0f172a",
-    "primaryTextColor": "#e2e8f0",
-    "primaryBorderColor": "#334155",
-    "lineColor": "#94a3b8",
-    "secondaryColor": "#1e293b",
-    "tertiaryColor": "#0f172a",
-    "background": "#020617",
-    "mainBkg": "#0f172a",
-    "nodeBorder": "#475569",
-    "clusterBkg": "#1e293b",
-    "titleColor": "#f8fafc",
-    "edgeLabelBackground": "#1e293b",
-    "attributeBackgroundColorEven": "#1e293b",
-    "attributeBackgroundColorOdd": "#0f172a"
+    "primaryColor": "#1a1a1a",
+    "primaryTextColor": "#e0e0e0",
+    "primaryBorderColor": "#444444",
+    "lineColor": "#888888",
+    "secondaryColor": "#2a2a2a",
+    "tertiaryColor": "#111111",
+    "background": "#000000",
+    "mainBkg": "#1a1a1a",
+    "nodeBorder": "#555555",
+    "clusterBkg": "#222222",
+    "titleColor": "#ffffff",
+    "edgeLabelBackground": "#1a1a1a",
+    "attributeBackgroundColorEven": "#1a1a1a",
+    "attributeBackgroundColorOdd": "#111111"
   }
 } }%%
 flowchart TD
-    classDef data fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px,color:#bfdbfe,font-weight:bold
-    classDef front fill:#0c4a6e,stroke:#0ea5e9,stroke-width:2px,color:#bae6fd,font-weight:bold
-    classDef middle fill:#3b0764,stroke:#a855f7,stroke-width:2px,color:#e9d5ff,font-weight:bold
-    classDef back fill:#14532d,stroke:#22c55e,stroke-width:2px,color:#bbf7d0,font-weight:bold
-    classDef exec fill:#7c2d12,stroke:#f97316,stroke-width:2px,color:#fed7aa,font-weight:bold
-    classDef hold fill:#1e293b,stroke:#64748b,stroke-width:2px,color:#cbd5e1,font-weight:bold
+    classDef data fill:#1a1a1a,stroke:#aaaaaa,stroke-width:2px,color:#e0e0e0,font-weight:bold
+    classDef front fill:#1a1a1a,stroke:#cccccc,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef middle fill:#111111,stroke:#999999,stroke-width:2px,color:#dddddd,font-weight:bold
+    classDef back fill:#222222,stroke:#bbbbbb,stroke-width:2px,color:#eeeeee,font-weight:bold
+    classDef exec fill:#0d0d0d,stroke:#ffffff,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef hold fill:#2a2a2a,stroke:#666666,stroke-width:2px,color:#aaaaaa,font-weight:bold
 
     subgraph Data["  HIGH-FREQUENCY MARKET DATA FEEDS  "]
         A1[(SSE\nTick Data)]:::data
@@ -126,7 +126,7 @@ flowchart TD
 </div>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1e293b", "primaryTextColor": "#f1f5f9", "primaryBorderColor": "#475569", "lineColor": "#64748b", "background": "#0f172a", "mainBkg": "#1e293b", "titleColor": "#f8fafc"}} }%%
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "primaryBorderColor": "#555555", "lineColor": "#777777", "background": "#000000", "mainBkg": "#1a1a1a", "titleColor": "#ffffff"}} }%%
 mindmap
   root(("AEGIS\nCore"))
     Data Layer
@@ -170,7 +170,7 @@ mindmap
 </div>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1e293b", "primaryTextColor": "#f1f5f9", "primaryBorderColor": "#475569", "lineColor": "#64748b", "background": "#0f172a"}} }%%
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "primaryBorderColor": "#555555", "lineColor": "#777777", "background": "#000000"}} }%%
 xychart-beta
     title "Latency Profile vs. Target Threshold (ms)"
     x-axis ["BiGRU Pass", "VMD Decomp", "Bayesian Upd", "Cost Calc", "FX Routing", "TARGET"]
@@ -180,7 +180,7 @@ xychart-beta
 ```
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "background": "#0f172a", "pie1": "#3b82f6", "pie2": "#a855f7", "pie3": "#22c55e", "pie4": "#f97316", "pie5": "#ef4444"}} }%%
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "background": "#000000", "pie1": "#ffffff", "pie2": "#aaaaaa", "pie3": "#777777", "pie4": "#444444", "pie5": "#222222"}} }%%
 pie title Latency Budget Breakdown
     "BiGRU Inference" : 38
     "VMD Decomposition" : 27
@@ -198,7 +198,7 @@ pie title Latency Budget Breakdown
 </div>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1e293b", "primaryTextColor": "#f1f5f9", "primaryBorderColor": "#475569", "lineColor": "#64748b", "background": "#0f172a", "mainBkg": "#1e293b", "titleColor": "#f8fafc", "taskBkgColor": "#1e293b", "taskBorderColor": "#475569", "taskTextColor": "#e2e8f0", "activeTaskBkgColor": "#3b0764", "activeTaskBorderColor": "#a855f7", "doneTaskBkgColor": "#14532d", "doneTaskBorderColor": "#22c55e", "critBkgColor": "#7c2d12", "critBorderColor": "#f97316", "sectionBkgColor": "#020617", "altSectionBkgColor": "#0f172a", "gridColor": "#334155"}} }%%
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "primaryBorderColor": "#555555", "lineColor": "#777777", "background": "#000000", "mainBkg": "#1a1a1a", "titleColor": "#ffffff", "taskBkgColor": "#1a1a1a", "taskBorderColor": "#555555", "taskTextColor": "#dddddd", "activeTaskBkgColor": "#2a2a2a", "activeTaskBorderColor": "#aaaaaa", "doneTaskBkgColor": "#333333", "doneTaskBorderColor": "#888888", "critBkgColor": "#111111", "critBorderColor": "#ffffff", "sectionBkgColor": "#000000", "altSectionBkgColor": "#0d0d0d", "gridColor": "#333333"}} }%%
 gantt
     title AEGIS Alpha Capture Timeline
     dateFormat YYYY-MM
@@ -259,12 +259,5 @@ gantt
 
 <div align="center">
 
-**AEGIS** · *Alpha will be achieved.*
-
-`VMD` · `BiGRU` · `Bayesian Inference` · `T+0` · `HFT` · `Capital Rotation`
-
----
-
-*Research repository — not financial advice.*
-
+**AEGIS**
 </div>
