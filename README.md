@@ -235,9 +235,9 @@ gantt
 
 > **`[BACKTEST STATUS: NON-VIABLE]`**
 >
-> Current backtests indicate the model is **not yet production-ready**. The primary bottleneck is deep learning inference latency (`0.10–0.80ms`), which exceeds the execution threshold for true HFT. Additionally, the BiGRU architecture exhibits sensitivity to **regime changes**, degrading predictive accuracy during volatility transitions.
+> Currently, it is not viable, as seen from backtests (output), because the model struggles with high latency due to the deep learning addition and regime changes. Alpha will be achieved sooner or later; the Bi-GRU model will be filtered and replicated through linear logic instead.
 >
-> **Resolution path:** The BiGRU component will be **filtered and replicated through linear logic** — preserving the directional signal whilst eliminating the computational overhead that prevents alpha capture at target execution speeds.
+> The primary bottleneck is deep learning inference latency (`0.10–0.80ms`), which exceeds the execution threshold for true HFT.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
