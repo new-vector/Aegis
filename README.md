@@ -74,3 +74,9 @@ flowchart TD
 *   **Middle-End**: Employs a BiGRU network and Bayesian probability updating to dynamically predict trade profitability. 
 *   **Back-End**: Calculates micro-transaction costs and manages market routing based on the active trading clock.
 *   **Execution**: Manages the actual high-frequency buying/selling and handles capital rotation (currency conversion) between the US and Chinese markets via HKEx FX settlement.
+
+---
+
+Currently, it is not viable, as seen from backtests (output), because the model struggles with high latency (0.10-0.80 ms) due to the deep learning addition and regime changes. Alpha will be achieved sooner or later; the Bi-GRU model will be filtered and replicated through linear logic instead.
+
+
