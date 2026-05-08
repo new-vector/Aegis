@@ -1,19 +1,4 @@
-<div align="center">
 
-# AEGIS · VMD-BiGRU Capital Rotation
-
-**`SSE` · `NASDAQ` · `HKEx`**
-
-![Status](https://img.shields.io/badge/STATUS-RESEARCH%20PHASE-555555?style=for-the-badge)
-![Model](https://img.shields.io/badge/MODEL-BiGRU%20%2B%20BAYESIAN-222222?style=for-the-badge)
-![Latency](https://img.shields.io/badge/LATENCY-0.10–0.80ms-333333?style=for-the-badge)
-![Strategy](https://img.shields.io/badge/STRATEGY-T%2B0%20HFT-111111?style=for-the-badge)
-
-> *High-frequency, dual-market capital rotation strategy using Variational Mode Decomposition and Bidirectional Gated Recurrent Units with Bayesian probability updating, rotating capital dynamically between A-shares and US equities via HKEx FX settlement.*
-
-</div>
-
----
 
 <div align="center">
 
