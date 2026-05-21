@@ -1,4 +1,3 @@
-```markdown
 <div align="center">
 
 ## System Architecture
@@ -196,4 +195,3 @@ gantt
 
 **AEGIS**
 </div>
-```
