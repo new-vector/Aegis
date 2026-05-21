@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 ## System Architecture
@@ -37,7 +35,6 @@ flowchart TD
     subgraph Data["  HIGH-FREQUENCY MARKET DATA FEEDS  "]
         A1[(SSE\nTick Data)]:::data
         A2[(NASDAQ\nTick Data)]:::data
-        A3[(HKEx FX\nTick Data)]:::data
     end
 
     subgraph Front["  FRONT-END · SIGNAL ENGINEERING  "]
@@ -55,20 +52,19 @@ flowchart TD
     end
 
     subgraph Back["  BACK-END · T+0 STRATEGY LOGIC  "]
-        D1["Micro-Transaction Cost Calc\nSpread  +  Fees  +  FX Slippage"]:::back
+        D1["Micro-Transaction Cost Calc\nSpread  +  Exchange Fees"]:::back
         D2{"Net Expected\nYield > 0 ?"}:::back
-        D3["Clock Manager\nRoutes to Active Market Window"]:::back
+        D3["Exchange Router\nRoutes to Active Market Window"]:::back
     end
 
     subgraph Exec["  EXECUTION · CAPITAL ROTATION LAYER  "]
-        E1(["SSE Trade\nHigh-Freq Buy / Sell"]):::exec
-        E2(["HKEx FX Settlement\nCNY  ↔  CNH  ↔  USD"]):::exec
-        E3(["NASDAQ Trade\nHigh-Freq Buy / Sell"]):::exec
+        E1(["SSE Trade\nHigh-Freq Limit / Market"]):::exec
+        E3(["NASDAQ Trade\nHigh-Freq Limit / Market"]):::exec
     end
 
     Hold(["HOLD / LIQUIDATE\nNo Edge Detected"]):::hold
 
-    A1 & A2 & A3 --> B1
+    A1 & A2 --> B1
     B1 --> B2 --> B3 --> C1
     C1 --> C2 --> C3
     C4 -. "Prior\nProbability" .-> C3
@@ -81,10 +77,6 @@ flowchart TD
     D2 -- "Costs Too High" --> Hold
     D3 -- "China Hours" --> E1
     D3 -- "U.S. Hours" --> E3
-    E1 -- "Liquidate &\nConvert" --> E2
-    E2 -- "Transfer\nFunds →" --> E3
-    E3 -- "Liquidate &\nConvert" --> E2
-    E2 -- "Transfer\nFunds →" --> E1
 ```
 
 ---
@@ -102,7 +94,6 @@ mindmap
     Data Layer
       SSE Tick Feed
       NASDAQ Tick Feed
-      HKEx FX Feed
       Order Book Depth
     Signal Engineering
       OHLCV Aggregation
@@ -111,24 +102,19 @@ mindmap
       Fast VMD
         Mode Decomposition
         Noise Suppression
-    Prediction Engine
+    Prediction System
       BiGRU Network
         Forward Pass
         Backward Pass
       Bayesian Updater
         Likelihood Estimation
         Posterior Rolling State
-      60% Profit Threshold
+      Probability Thresholds
     Risk & Execution
       Transaction Cost Model
         Spread Analysis
         Fee Calculation
-        FX Slippage
-      Clock Manager
-        China Session
-        US Session
-      Capital Rotation
-        CNY ↔ CNH ↔ USD
+      Market Routing
 ```
 
 ---
@@ -143,20 +129,19 @@ mindmap
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "primaryBorderColor": "#555555", "lineColor": "#777777", "background": "#000000"}} }%%
 xychart-beta
     title "Latency Profile vs. Target Threshold (ms)"
-    x-axis ["BiGRU Pass", "VMD Decomp", "Bayesian Upd", "Cost Calc", "FX Routing", "TARGET"]
+    x-axis ["BiGRU Pass", "VMD Decomp", "Bayesian Upd", "Cost Calc"]
     y-axis "Latency (ms)" 0 --> 1.0
-    bar [0.80, 0.45, 0.20, 0.15, 0.10, 0.05]
-    line [0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+    bar [0.80, 0.45, 0.20, 0.15]
+    line [0.05, 0.05, 0.05, 0.05]
 ```
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "background": "#000000", "pie1": "#ffffff", "pie2": "#aaaaaa", "pie3": "#777777", "pie4": "#444444", "pie5": "#222222"}} }%%
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a1a1a", "primaryTextColor": "#e0e0e0", "background": "#000000", "pie1": "#ffffff", "pie2": "#aaaaaa", "pie3": "#777777", "pie4": "#444444"}} }%%
 pie title Latency Budget Breakdown
-    "BiGRU Inference" : 38
-    "VMD Decomposition" : 27
-    "Bayesian Update" : 16
-    "Cost Calculation" : 11
-    "FX / Routing" : 8
+    "BiGRU Inference" : 41
+    "VMD Decomposition" : 29
+    "Bayesian Update" : 18
+    "Cost Calculation" : 12
 ```
 
 ---
@@ -184,10 +169,9 @@ gantt
     Latency Profiling               :done,    p2b, 2025-04, 2025-06
     Regime Change Analysis          :active,  p2c, 2025-06, 2026-02
 
-    section Phase III · Optimisation
+    section Phase III · Optimization
     BiGRU → Linear Logic Refactor   :active,  p3a, 2026-01, 2026-06
     Latency Reduction Target        :         p3b, 2026-03, 2026-08
-    FX Settlement Optimisation      :         p3c, 2026-05, 2026-09
 
     section Phase IV · Live Alpha
     Paper Trading Validation        :crit,    p4a, 2026-08, 2026-11
@@ -203,11 +187,11 @@ gantt
 
 </div>
 
-> **`[BACKTEST STATUS: NON-VIABLE]`**
+> **`[STATUS: PRE-ALPHA / NON-VIABLE]`**
 >
-> Currently, it is not viable, as seen from backtests (output), because the model struggles with high latency due to the deep learning addition and regime changes. Alpha will be achieved sooner or later; the Bi-GRU model will be filtered and replicated through linear logic instead.
->
-> The primary bottleneck is deep learning inference latency (`0.10–0.80ms`), which exceeds the execution threshold for true HFT.
+> Current iteration fails strict HFT latency constraints. Backtesting indicates severe performance decay during structural regime shifts due to model adaptability drag. 
+> 
+> The primary bottleneck is deep learning inference overhead (`0.10–0.80ms`). To achieve true HFT execution bounds, the BiGRU model's feature extraction logic must be distilled and replicated via linearized logic approximations. Development is pivoting to optimize for microsecond-level execution.
 
 ---
 
