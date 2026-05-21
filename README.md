@@ -1,3 +1,4 @@
+```markdown
 <div align="center">
 
 ## System Architecture
@@ -33,8 +34,7 @@ flowchart TD
     classDef hold fill:#2a2a2a,stroke:#666666,stroke-width:2px,color:#aaaaaa,font-weight:bold
 
     subgraph Data["  HIGH-FREQUENCY MARKET DATA FEEDS  "]
-        A1[(SSE\nTick Data)]:::data
-        A2[(NASDAQ\nTick Data)]:::data
+        A1[(NASDAQ\nTick Data)]:::data
     end
 
     subgraph Front["  FRONT-END · SIGNAL ENGINEERING  "]
@@ -54,17 +54,16 @@ flowchart TD
     subgraph Back["  BACK-END · T+0 STRATEGY LOGIC  "]
         D1["Micro-Transaction Cost Calc\nSpread  +  Exchange Fees"]:::back
         D2{"Net Expected\nYield > 0 ?"}:::back
-        D3["Exchange Router\nRoutes to Active Market Window"]:::back
+        D3["Order Router\nDirect Market Access"]:::back
     end
 
-    subgraph Exec["  EXECUTION · CAPITAL ROTATION LAYER  "]
-        E1(["SSE Trade\nHigh-Freq Limit / Market"]):::exec
-        E3(["NASDAQ Trade\nHigh-Freq Limit / Market"]):::exec
+    subgraph Exec["  EXECUTION LAYER  "]
+        E1(["NASDAQ Trade\nHigh-Freq Limit / Market"]):::exec
     end
 
     Hold(["HOLD / LIQUIDATE\nNo Edge Detected"]):::hold
 
-    A1 & A2 --> B1
+    A1 --> B1
     B1 --> B2 --> B3 --> C1
     C1 --> C2 --> C3
     C4 -. "Prior\nProbability" .-> C3
@@ -75,8 +74,7 @@ flowchart TD
     D1 --> D2
     D2 -- "Profitable" --> D3
     D2 -- "Costs Too High" --> Hold
-    D3 -- "China Hours" --> E1
-    D3 -- "U.S. Hours" --> E3
+    D3 -- "Execute" --> E1
 ```
 
 ---
@@ -92,7 +90,6 @@ flowchart TD
 mindmap
   root(("AEGIS\nCore"))
     Data Layer
-      SSE Tick Feed
       NASDAQ Tick Feed
       Order Book Depth
     Signal Engineering
@@ -169,7 +166,7 @@ gantt
     Latency Profiling               :done,    p2b, 2025-04, 2025-06
     Regime Change Analysis          :active,  p2c, 2025-06, 2026-02
 
-    section Phase III · Optimization
+    section Phase III · Optimisation
     BiGRU → Linear Logic Refactor   :active,  p3a, 2026-01, 2026-06
     Latency Reduction Target        :         p3b, 2026-03, 2026-08
 
@@ -191,7 +188,7 @@ gantt
 >
 > Current iteration fails strict HFT latency constraints. Backtesting indicates severe performance decay during structural regime shifts due to model adaptability drag. 
 > 
-> The primary bottleneck is deep learning inference overhead (`0.10–0.80ms`). To achieve true HFT execution bounds, the BiGRU model's feature extraction logic must be distilled and replicated via linearized logic approximations. Development is pivoting to optimize for microsecond-level execution.
+> The primary bottleneck is deep learning inference overhead (`0.10–0.80ms`). To achieve true HFT execution bounds, the BiGRU model's feature extraction logic must be distilled and replicated via linearised logic approximations. Development is pivoting to optimise for microsecond-level execution.
 
 ---
 
@@ -199,3 +196,4 @@ gantt
 
 **AEGIS**
 </div>
+```
