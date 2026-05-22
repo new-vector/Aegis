@@ -184,22 +184,39 @@ gantt
 
 ---
 
-<div align="center">
-
-## Research Notes
-
-</div>
-
-> **`[STATUS: PRE-ALPHA / NON-VIABLE]`**
->
-> Current iteration fails strict HFT latency constraints. Backtesting indicates severe performance decay during structural regime shifts due to model adaptability drag. 
-> 
-> The primary bottleneck is deep learning inference overhead (`0.10–0.80ms`). To achieve true HFT execution bounds, the BiGRU model's feature extraction logic must be distilled and replicated via linearised logic approximations. Development is pivoting to optimise for microsecond-level execution.
-
-
 ---
 
 <div align="center">
 
-**AEGIS**
-</div>
+## Research Notes
+
+> **`[STATUS: PNON-VIABLE]`**
+
+---
+
+Raw tick data is decomposed via VMD minimisation to isolate tradeable signal components from market microstructure noise:
+
+$$f(\alpha, \beta, \gamma) = \min_{k,\,\beta,\,\gamma} \left\{ \left\| \delta(t) - \sum_{k}^{n} u_k(t) \right\| + \alpha \left\| \partial_t \left[ u_k(t)\,e^{-i\omega_k t} \right] \right\| \right\}$$
+
+Extracts discrete sub-signals $u_k$ from raw input $\delta(t)$. The penalty term $\alpha$ regularises the derivative of each frequency-shifted mode, suppressing high-frequency noise without distorting the underlying signal structure.
+
+---
+
+Post-BiGRU, the system applies standard Bayesian inference over a rolling state:
+
+$$\text{Posterior}(\theta \mid y) \;\propto\; P(y \mid \theta)\,P(\theta)$$
+
+Each inference cycle maps the prior $P(\theta)$ against the likelihood of observed market data $P(y \mid \theta)$ to yield a continuous posterior distribution over signal validity. The posterior is recycled as the next prior, maintaining an adaptive belief state across time.
+
+---
+
+Two hard gates govern execution eligibility:
+
+| Gate | Condition | Description |
+|---|---|---|
+| Volatility Filter | $\sigma_t \leq 3\sigma$ | Suspends execution during fat-tail regimes; no edge assumed beyond 3 standard deviations |
+| Execution Gate | $\psi^* \xi > 0.6$ | Bayesian posterior $P(\text{Profit})$ must exceed 60% before order routing proceeds |
+
+---
+
+**Primary bottleneck:** Pronounced performance decay during structural regime shifts, Bayesian prior state exhibits adaptability drag under non-stationary volatility, causing posterior miscalibration. Regime change analysis ongoing.
