@@ -1,3 +1,7 @@
+
+<div align="center">
+
+## What is Aegis?
 <img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/d50003da-afb7-4712-bf82-32a556a729fe" />
 
 <div align="center">
