@@ -221,6 +221,8 @@ Two hard gates govern execution eligibility:
 
 **Primary bottleneck:** Pronounced performance decay during structural regime shifts, Bayesian prior state exhibits adaptability drag under non-stationary volatility, causing posterior miscalibration. Regime change analysis ongoing.
 
+<div align="left">
+  
 ---
 
 ## Sources
