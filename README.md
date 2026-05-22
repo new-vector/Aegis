@@ -12,75 +12,25 @@
 </div>
 
 ```mermaid
-%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    "primaryColor": "#1a1a1a",
-    "primaryTextColor": "#e0e0e0",
-    "primaryBorderColor": "#444444",
-    "lineColor": "#888888",
-    "secondaryColor": "#2a2a2a",
-    "tertiaryColor": "#111111",
-    "background": "#000000",
-    "mainBkg": "#1a1a1a",
-    "nodeBorder": "#555555",
-    "clusterBkg": "#222222",
-    "titleColor": "#ffffff",
-    "edgeLabelBackground": "#1a1a1a",
-    "attributeBackgroundColorEven": "#1a1a1a",
-    "attributeBackgroundColorOdd": "#111111"
-  }
-} }%%
 flowchart TD
-    classDef data fill:#1a1a1a,stroke:#aaaaaa,stroke-width:2px,color:#e0e0e0,font-weight:bold
-    classDef front fill:#1a1a1a,stroke:#cccccc,stroke-width:2px,color:#ffffff,font-weight:bold
-    classDef middle fill:#111111,stroke:#999999,stroke-width:2px,color:#dddddd,font-weight:bold
-    classDef back fill:#222222,stroke:#bbbbbb,stroke-width:2px,color:#eeeeee,font-weight:bold
-    classDef exec fill:#0d0d0d,stroke:#ffffff,stroke-width:2px,color:#ffffff,font-weight:bold
-    classDef hold fill:#2a2a2a,stroke:#666666,stroke-width:2px,color:#aaaaaa,font-weight:bold
-
-    subgraph Data["  HIGH-FREQUENCY MARKET DATA FEEDS  "]
-        A1[(NASDAQ\nTick Data)]:::data
-    end
-
-    subgraph Front["  FRONT-END · SIGNAL ENGINEERING  "]
-        B1["Micro-Market Data Aggregation\nOrder Book  ·  OHLCV Ticks"]:::front
-        B2["Technical Indicator\nCalculation Engine"]:::front
-        B3["Fast VMD\nDecompose Noise from Signal"]:::front
-    end
-
-    subgraph Middle["  MIDDLE-END · BAYESIAN PROBABILITY ENGINE  "]
-        C1["BiGRU Network\nBidirectional Sequence Feature Extraction"]:::middle
-        C2["Likelihood Estimator\nP( Signal | Profit )"]:::middle
-        C3(["Bayesian Updater\nPosterior  ∝  Likelihood  ×  Prior"]):::middle
-        C4[("Rolling Bias State\nPosterior → Next Prior")]:::middle
-        C5{"P( Profit ) > 60% ?"}:::middle
-    end
-
-    subgraph Back["  BACK-END · T+0 STRATEGY LOGIC  "]
-        D1["Micro-Transaction Cost Calc\nSpread  +  Exchange Fees"]:::back
-        D2{"Net Expected\nYield > 0 ?"}:::back
-        D3["Order Router\nDirect Market Access"]:::back
-    end
-
-    subgraph Exec["  EXECUTION LAYER  "]
-        E1(["NASDAQ Trade\nHigh-Freq Limit / Market"]):::exec
-    end
-
-    Hold(["HOLD / LIQUIDATE\nNo Edge Detected"]):::hold
-
-    A1 --> B1
-    B1 --> B2 --> B3 --> C1
-    C1 --> C2 --> C3
-    C4 -. "Prior\nProbability" .-> C3
-    C3 -- "Updates" --> C4
-    C3 -- "Current\nProbability" --> C5
-    C5 -- "YES › ACTION" --> D1
-    C5 -- "NO › INACTION" --> Hold
-    D1 --> D2
-    D2 -- "Profitable" --> D3
-    D2 -- "Costs Too High" --> Hold
-    D3 -- "Execute" --> E1
+    A[(NASDAQ\nTick Feed)]
+    
+    A --> B[OHLCV Aggregation\nOrder Book Depth]
+    B --> C[Technical Indicators\nRSI · MACD · BB]
+    C --> D[VMD De-noising\nSignal / Noise Separation]
+    
+    D --> E{Volatility > 3σ ?}
+    E -- Yes --> HOLD
+    E -- No --> F[Gemma 4 31B\nProfitability Prediction]
+    
+    F --> G[Bayesian Updater\nPosterior ∝ Likelihood × Prior]
+    G --> H{P Profit > 60% ?}
+    
+    H -- No --> HOLD
+    H -- Yes --> I{Net Yield\nAfter Costs > 0 ?}
+    
+    I -- No --> HOLD([Hold / No Edge])
+    I -- Yes --> J([Execute\nLimit / Market Order])
 ```
 
 ---
