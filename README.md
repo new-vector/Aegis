@@ -220,3 +220,34 @@ Two hard gates govern execution eligibility:
 ---
 
 **Primary bottleneck:** Pronounced performance decay during structural regime shifts, Bayesian prior state exhibits adaptability drag under non-stationary volatility, causing posterior miscalibration. Regime change analysis ongoing.
+
+---
+
+## Sources
+
+1. Cont, R. & Larrard, A. — *Dynamics of Order Positions and Related Queues in a Limit Order Book*
+   https://www.researchgate.net/publication/277023747_Dynamics_of_Order_Positions_and_Related_Queues_in_a_Limit_Order_Book
+
+2. Linux Kernel Documentation — *AF_XDP*
+   https://docs.kernel.org/networking/af_xdp.html
+
+3. DPDK — *Poll Mode Driver* (v24.03)
+   https://doc.dpdk.org/guides-24.03/prog_guide/poll_mode_drv.html
+
+4. DPDK — *OPDL Event Device* (v24.07)
+   https://doc.dpdk.org/guides-24.07/eventdevs/opdl.html
+
+5. DPDK — *ENA NIC Driver* (v25.03)
+   https://doc.dpdk.org/guides-25.03/nics/ena.html
+
+6. DPDK — *ICE NIC Driver* (v25.11)
+   https://doc.dpdk.org/guides-25.11/nics/ice.html
+
+7. DPDK Power Docs — *ENA NIC*
+   https://dpdk-power-docs.readthedocs.io/en/latest/nics/ena.html
+
+8. NVIDIA — *TensorRT Developer Guide*
+   https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/
+
+9. AMD/Solarflare — *Enterprise Onload User Guide* (SF-104474-CD-34)
+   https://www.amd.com/content/dam/amd/en/support/downloads/solarflare/onload/enterprise-onload/SF-104474-CD-34_Onload_User_Guide.pdf
