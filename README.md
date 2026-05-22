@@ -4,6 +4,9 @@
 ## What is Aegis?
 <img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/d50003da-afb7-4712-bf82-32a556a729fe" />
 
+---
+Aegis is rather simple; implementation of base technicals; MACD, BB, EMA to create signals ("Signals" are simply the conventional 'breakouts' or 'bullish' intervals of all TIs, aggregated). A signal's profitability is then interpreted by Gemma 34B based on brief datasets obtained from databento (OHLVC is aggregated and simplified to greek variables through a scoring system [high - probability of profit (POP): 0.5<, Low - POP: 0-0.5, max: 1, execution is routed through Alpaca API.
+
 <div align="center">
 
 ---
