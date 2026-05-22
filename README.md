@@ -6,6 +6,7 @@
 
 <div align="center">
 
+---
 ## System Architecture
 
 </div>
@@ -194,8 +195,6 @@ gantt
 > Current iteration fails strict HFT latency constraints. Backtesting indicates severe performance decay during structural regime shifts due to model adaptability drag. 
 > 
 > The primary bottleneck is deep learning inference overhead (`0.10–0.80ms`). To achieve true HFT execution bounds, the BiGRU model's feature extraction logic must be distilled and replicated via linearised logic approximations. Development is pivoting to optimise for microsecond-level execution.
-
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/8c167af7-b2eb-487f-a431-44fe229d514d" />
 
 
 ---
