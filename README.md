@@ -141,7 +141,7 @@ gantt
 
 <div align="center">
 
-## Research Notes
+## Central Component
 
 > **`[STATUS: NON-VIABLE]`**
 
