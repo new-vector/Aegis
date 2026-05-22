@@ -5,7 +5,7 @@
 <img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/d50003da-afb7-4712-bf82-32a556a729fe" />
 
 ---
-Aegis is rather simple; implementation of base technicals; MACD, BB, EMA to create signals ("Signals" are simply the conventional 'breakouts' or 'bullish' intervals of all TIs, aggregated). A signal's profitability is then interpreted by a VMD seperation system, then Gemma 34B is used to interpret clean signals (To sustain token usage, OHLVC is aggregated and simplified to greek variables through a scoring system [high - probability of profit (POP): 0.5<, Low - POP: 0-0.5, max: 1), execution is routed through Alpaca API.
+Aegis is rather simple; implementation of base technicals; MACD, BB, EMA to create signals ("Signals" are simply the conventional 'breakouts' or 'bullish' intervals of all TIs, aggregated). A signal's profitability is then interpreted by a VMD seperation system, then a BiGRU (trained on databento datasets) is used to interpret clean signals (To sustain token usage, OHLVC is aggregated and simplified to greek variables through a scoring system [high - probability of profit (POP): 0.5<, Low - POP: 0-0.5, max: 1), execution is routed through Alpaca API.
 
 <div align="center">
 
@@ -24,7 +24,7 @@ flowchart TD
     
     D --> E{Volatility > 3σ ?}
     E -- Yes --> HOLD
-    E -- No --> F[Gemma 4 31B\nProfitability Prediction]
+    E -- No --> F[BiGRU\nProfitability Prediction]
     
     F --> G[Bayesian Updater\nPosterior ∝ Likelihood × Prior]
     G --> H{P Profit > 60% ?}
