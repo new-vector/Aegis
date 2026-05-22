@@ -1,4 +1,5 @@
-<img width="1024" height="559" alt="596470479-9af87f33-c82e-42a9-bbe6-875a61cb3d52(1)" src="https://github.com/user-attachments/assets/252deddb-ecf7-45e5-9dcc-dadad9d0c2db" />
+<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/d50003da-afb7-4712-bf82-32a556a729fe" />
+
 
 
 ## System Architecture
