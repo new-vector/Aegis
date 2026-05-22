@@ -196,7 +196,7 @@ gantt
 
 Raw tick data is decomposed via VMD minimisation to isolate tradeable signal components from market microstructure noise:
 
-$$f(\alpha, \beta, \gamma) = \min_{k,\,\beta,\,\gamma} \left\{ \lVert \delta(t) - \sum_{k}^{n} u_k(t) \rVert + \alpha \lVert \partial_t \left[ u_k(t)\,e^{-i\omega_k t} \right] \rVert \right\}$$
+$$f(\alpha, \beta, \gamma) = \min_{k,\,\beta,\,\gamma} \Bigl\{ \lVert \delta(t) - \sum_{k}^{n} u_k(t) \rVert + \alpha \lVert \partial_t \bigl[ u_k(t)\,e^{-i\omega_k t} \bigr] \rVert \Bigr\}$$
 
 Extracts discrete sub-signals $u_k$ from raw input $\delta(t)$. The penalty term $\alpha$ regularises the derivative of each frequency-shifted mode, suppressing high-frequency noise without distorting the underlying signal structure.
 
