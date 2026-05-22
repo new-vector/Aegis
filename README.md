@@ -5,7 +5,7 @@
 <img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/d50003da-afb7-4712-bf82-32a556a729fe" />
 
 ---
-Aegis is rather simple; implementation of base technicals; MACD, BB, EMA to create signals ("Signals" are simply the conventional 'breakouts' or 'bullish' intervals of all TIs, aggregated). A signal's profitability is then interpreted by a VMD seperation system, then a BiGRU (trained on databento datasets) is used to interpret clean signals (To sustain token usage, OHLVC is aggregated and simplified to greek variables through a scoring system [high - probability of profit (POP): 0.5<, Low - POP: 0-0.5, max: 1), execution is routed through Alpaca API.
+Aegis is rather simple; implementation of base technicals; MACD, BB, EMA to create signals ("Signals" are simply the conventional 'breakouts' or 'bullish' intervals of all TIs, aggregated). Clean signals are passed through VMD decomposition to strip microstructure noise, then fed into Gemma 4 31B (no specialised fine-tuning) to estimate profitability, OHLVC is aggregated and simplified to variables through a scoring system [high - probability of profit (POP): 0.5<, Low - POP: 0-0.5, max: 1), the estimate is continously refined via a bayesian updater, execution is routed through Alpaca API and only proceeds if P(Profit) > 60% and net yield clears transaction costs.
 
 <div align="center">
 
@@ -143,7 +143,7 @@ gantt
 
 ## Research Notes
 
-> **`[STATUS: PNON-VIABLE]`**
+> **`[STATUS: NON-VIABLE]`**
 
 ---
 
