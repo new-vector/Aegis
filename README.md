@@ -183,26 +183,53 @@ Two hard gates govern execution eligibility:
 1. Cont, R. & Larrard, A. — *Dynamics of Order Positions and Related Queues in a Limit Order Book*
    https://www.researchgate.net/publication/277023747_Dynamics_of_Order_Positions_and_Related_Queues_in_a_Limit_Order_Book
 
-2. Linux Kernel Documentation — *AF_XDP*
+2. Adams, R. P. & MacKay, D. J. C. — *Bayesian Online Changepoint Detection*
+   https://arxiv.org/abs/0710.3742
+
+3. Cho, K. et al. — *Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation*
+   https://arxiv.org/abs/1406.1078
+
+4. Linux Kernel Documentation — *AF_XDP*
    https://docs.kernel.org/networking/af_xdp.html
 
-3. DPDK — *Poll Mode Driver* (v24.03)
+5. DPDK — *Poll Mode Driver* (v24.03)
    https://doc.dpdk.org/guides-24.03/prog_guide/poll_mode_drv.html
 
-4. DPDK — *OPDL Event Device* (v24.07)
+6. DPDK — *OPDL Event Device* (v24.07)
    https://doc.dpdk.org/guides-24.07/eventdevs/opdl.html
 
-5. DPDK — *ENA NIC Driver* (v25.03)
+7. DPDK — *ENA NIC Driver* (v25.03)
    https://doc.dpdk.org/guides-25.03/nics/ena.html
 
-6. DPDK — *ICE NIC Driver* (v25.11)
+8. DPDK — *ICE NIC Driver* (v25.11)
    https://doc.dpdk.org/guides-25.11/nics/ice.html
 
-7. DPDK Power Docs — *ENA NIC*
-   https://dpdk-power-docs.readthedocs.io/en/latest/nics/ena.html
+9. DPDK Power Docs — *ENA NIC*
+    https://dpdk-power-docs.readthedocs.io/en/latest/nics/ena.html
 
-8. NVIDIA — *TensorRT Developer Guide*
-   https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/
+10. NVIDIA — *TensorRT Developer Guide*
+    https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/
 
-9. AMD/Solarflare — *Enterprise Onload User Guide* (SF-104474-CD-34)
-   https://www.amd.com/content/dam/amd/en/support/downloads/solarflare/onload/enterprise-onload/SF-104474-CD-34_Onload_User_Guide.pdf
+11. AMD/Solarflare — *Enterprise Onload User Guide* (SF-104474-CD-34)
+    https://www.amd.com/content/dam/amd/en/support/downloads/solarflare/onload/enterprise-onload/SF-104474-CD-34_Onload_User_Guide.pdf
+
+12. Lahmiri, S. — *A Variational Mode Decomposition Approach for Analysis and Forecasting of Economic and Financial Time Series*
+    https://www.researchgate.net/publication/295394724_A_Variational_Mode_Decompoisition_Approach_for_Analysis_and_Forecasting_of_Economic_and_Financial_Time_Series
+
+13. Zhang, Z., Zohren, S. & Roberts, S. — *DeepLOB: Deep Convolutional Neural Networks for Limit Order Books*
+    https://ieeexplore.ieee.org/document/8673598
+
+14. Jin, M. et al. — *Time-LLM: Time Series Forecasting by Reprogramming Large Language Models*
+    https://arxiv.org/abs/2310.07820
+
+15. Lopez de Prado, M. — *Advances in Financial Machine Learning*
+    https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086
+
+16. Fowler, M. — *The LMAX Architecture*
+    https://martinfowler.com/articles/lmax.html
+
+17. Drepper, U. — *What Every Programmer Should Know About Memory*
+    https://people.freebsd.org/~lstewart/articles/cpumemory.pdf
+
+18. Belay, A. et al. — *IX: A Protected Dataplane Operating System for High Throughput and Low Latency*
+    https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-belay.pdf
